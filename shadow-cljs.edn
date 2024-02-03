@@ -1,0 +1,9 @@
+{:deps true
+ :dev-http {8200 "."}
+ :builds {:app
+          {:target :browser
+           :output-dir "resources/js"
+           :modules {:app {:init-fn bim-cljs.core/init}}
+           :js-options {:ignore-exports true}
+           :devtools {:http-root "./"
+                      :http-port 8300}}}}
