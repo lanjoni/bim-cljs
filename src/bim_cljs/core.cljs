@@ -31,12 +31,9 @@
 (def highlighter (obc/FragmentHighlighter. viewer))
 (def propertiesProcessor (obc/IfcPropertiesProcessor. viewer))
  
-;; (set! (.-wasm (.-settings ifcLoader)) {:absolute true :path "https://unpkg.com/web-ifc@0.0.44/"})
-
 (aset ifcLoader "settings.wasm" {:absolute true :path "https://unpkg.com/web-ifc@0.0.44/"})
  
 (.setup ifcLoader)
-;; (.setup propertiesProcessor)
  
 (.setup highlighter)
  
@@ -50,7 +47,7 @@
                                                                                            (.renderProperties propertiesProcessor model expressID)
                                                                                            (js/console.log "selection" selection))))
                                   (.update highlighter)))
- 
+
 (def mainToolbar (obc/Toolbar. viewer))
 (.addChild mainToolbar (.get (.-uiElement ifcLoader) "main") (.get (.-uiElement propertiesProcessor) "main"))
 (.addToolbar (.-ui viewer) mainToolbar)
